@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-    <title>Semáforo do Toque</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogo do Semáforo – toques seguros</title>
+  <meta name="description" content="Jogo educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js" defer></script>
 </head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<body class="d-flex h-100">
-    <header id="h-menu" data-bs-theme="dark">
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <h5>Semáforo</h5>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="s-content">
-            <div class="container d-flex"></div>
-        </section>
-    </main>
-
-    <script type="module" src="./assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio">
+        <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><rect width="22" height="30" rx="6" fill="#263238"/><circle cx="11" cy="7" r="3.5" fill="#ff6b5e"/><circle cx="11" cy="15" r="3.5" fill="#ffd23f"/><circle cx="11" cy="23" r="3.5" fill="#4cd07d"/></svg>
+        Jogo do Semáforo
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#jogo">Jogo</a></li>
+          <li><a href="#informacoes">Informações</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
