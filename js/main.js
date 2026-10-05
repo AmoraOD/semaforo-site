@@ -23,6 +23,7 @@ const QUESTIONS = [
   { pergunta: "Um colega propõe uma brincadeira em que todos mostram as partes íntimas.", resposta: "vermelho",
     explicacao: "Essa brincadeira não é segura. Diga que não quer e conte a um adulto de confiança." }
 ];
+
 const POINTS_PER_HIT = 10;
 const NAMES = { vermelho: "Vermelho", amarelo: "Amarelo", verde: "Verde" };
 
