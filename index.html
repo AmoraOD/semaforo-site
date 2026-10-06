@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jogo do Semáforo – toques seguros</title>
+    <title>Semáforo do Toque | Toques seguros</title>
     <meta name="description" content="Jogo educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
-    <header class="site-header">
+    <header id="principal-menu" class="site-header">
       <div class="header-inner">
         <a class="brand" href="#inicio">
           <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true">
@@ -20,26 +18,40 @@
               <circle cx="11" cy="15" r="3.5" fill="#ffd23f"/>
               <circle cx="11" cy="23" r="3.5" fill="#4cd07d"/>
           </svg>
-          Jogo do Semáforo
+          Semáforo do Toque
         </a>
         
-        <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         
-        <nav id="menu" class="nav" aria-label="Principal">
+        <nav id="menu-links" class="nav" aria-label="Principal">
           <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#jogo">Jogo</a></li>
-            <li><a href="#informacoes">Informações</a></li>
+            <li>
+              <a href="#/" data-route>Início</a>
+            </li>
+
+            <li>
+              <a href="#/como-funciona" data-route>Como funciona</a>
+            </li>
+
+            <li>
+              <a href="#/jogo" data-route>Jogo</a>
+            </li>
+
+            <li>
+              <a href="#/informacoes" data-route>Informações</a>
+            </li>
+
           </ul>
         </nav>
 
       </div>
     </header>
 
-    <main id="conteudo">
+    <main id="root">
 
-      <section id="inicio" class="frame" aria-labelledby="titulo-hero">
+      <!-- <section id="inicio" class="frame" aria-labelledby="titulo-hero">
         <div class="hero-grid">
           <div class="panel light-panel">
             <div class="traffic-light" role="img" aria-label="Semáforo com luzes vermelha, amarela e verde">
@@ -250,10 +262,10 @@
           </article>
 
         </div>
-      </section>
+      </section> -->
     </main>
 
-    <footer class="site-footer">
+    <footer class="py-3 my-4 site-footer">
       <div class="footer-inner">
         <div>
           <p class="footer-title">Jogo do Semáforo</p>
@@ -268,12 +280,14 @@
             <li><a href="#informacoes">Informações</a></li>
           </ul>
         </nav>
-        
+
       </div>
 
       <p class="copy">© <span id="year">2026</span> Jogo do Semáforo. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="/js/main.js" defer></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/menu.js"></script>
+    <script type="module" src="/js/router.js"></script>
   </body>
 </html>
