@@ -5,48 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Semáforo do Toque</title>
     <meta name="description" content="Jogo educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
-    <header id="principal-menu" class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#/">
-          <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true">
-            <rect width="22" height="30" rx="6" fill="#263238"/>
-              <circle cx="11" cy="7" r="3.5" fill="#ff6b5e"/>
+    <header id="principal-menu" class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Principal">
+        <div class="container-fluid mx-4">
+
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#/">
+            <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true">
+              <rect width="22" height="30" rx="6" fill="#263238"/>
+              <circle cx="11" cy="7"  r="3.5" fill="#ff6b5e"/>
               <circle cx="11" cy="15" r="3.5" fill="#ffd23f"/>
               <circle cx="11" cy="23" r="3.5" fill="#4cd07d"/>
-          </svg>
-          Semáforo do Toque
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <nav id="menu-links" class="nav" aria-label="Principal">
-          <ul>
-            <li>
-              <a href="#/" data-route>Início</a>
-            </li>
+            </svg>
+            Semáforo do Toque
+          </a>
 
-            <li>
-              <a href="#/como-funciona" data-route>Como funciona</a>
-            </li>
+          <button class="navbar-toggler" type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#menu-links"
+                  aria-controls="menu-links"
+                  aria-expanded="false"
+                  aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <li>
-              <a href="#/jogo" data-route>Jogo</a>
-            </li>
+          <div class="collapse navbar-collapse" id="menu-links">
+            <ul class="navbar-nav ms-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#/" data-route>Início</a>
+              </li>
 
-            <li>
-              <a href="#/informacoes" data-route>Informações</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#/como-funciona" data-route>Como Funciona</a>
+              </li>
 
-          </ul>
-        </nav>
+              <li class="nav-item">
+                <a class="nav-link" href="#/jogo" data-route>Jogo</a>
+              </li>
 
-      </div>
+              <li class="nav-item">
+                <a class="nav-link" href="#/informacoes" data-route>Informações</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </nav>
     </header>
 
     <main id="root">
@@ -286,8 +296,9 @@
       <p class="copy">© <span id="year"></span> Jogo do Semáforo. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- <script type="module" src="/js/menu.js"></script> -->
     <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/js/menu.js"></script>
     <script type="module" src="/js/router.js"></script>
+    <script type="module" src="/assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
