@@ -145,15 +145,5 @@ $('btn-restart').addEventListener('click', startGame);
 
 $('btn-comecar').addEventListener('click', () => { if (!game.playing) startGame(); });
 
-// const menuBtn = document.querySelector('.menu-toggle');
-// const menu = $('menu');
-// menuBtn.addEventListener('click', () => {
-//   const open = menu.classList.toggle('open');
-//   menuBtn.setAttribute('aria-expanded', open);
-// });
-// menu.addEventListener('click', (e) => {
-//   if (e.target.tagName === 'A') { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
-// });
-
 $('year').textContent = new Date().getFullYear();
 updateScoreboard();
