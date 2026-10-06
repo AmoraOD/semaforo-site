@@ -4,10 +4,12 @@ async function loadFragment(path) {
     if (fragmentCache.has(path)) return fragmentCache.get(path);
 
     const res = await fetch(path);
-    if (!res.ok) throw new Error(`Erro ${res.status} ao carregar ${path}`);
+    if (!res.ok)
+        throw new Error(`Erro ${res.status} ao carregar ${path}`);
 
     const html = await res.text();
     fragmentCache.set(path, html);
+
     return html;
 }
 
@@ -35,7 +37,6 @@ class Router {
         return raw === "" ? "/" : raw;
     }
 
-    /* Marca o <a> correspondente à rota como ativo */
     updateActiveLinks(path) {
         document.querySelectorAll("a[data-route]").forEach((a) => {
             const href = a.getAttribute("href") || "";
@@ -59,7 +60,6 @@ class Router {
 
         try {
             await route();
-            // Vai pro topo ao trocar de rota
             window.scrollTo({ top: 0, behavior: "auto" });
         } catch (err) {
             console.error(err);
@@ -70,7 +70,6 @@ class Router {
     }
 }
 
-/* --- Definição das rotas --- */
 const router = new Router({
     "/": async () => {
         document.getElementById("root").innerHTML =
@@ -101,15 +100,4 @@ const router = new Router({
             `<section class="frame"><h2>404</h2>
              <p>Página não encontrada.</p></section>`;
     }
-});
-
-/* Atualiza o título da aba conforme a rota */
-window.addEventListener("hashchange", () => {
-    const titles = {
-        "/":               "Início – Semáforo do Toque",
-        "/como-funciona":  "Como funciona – Semáforo do Toque",
-        "/jogo":           "Jogo – Semáforo do Toque",
-        "/informacoes":    "Informações – Semáforo do Toque",
-    };
-    document.title = titles[window.location.hash.slice(1)] || "Semáforo do Toque";
 });
