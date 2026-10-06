@@ -103,11 +103,11 @@ p { margin: 0 0 1em; }
 .result-list { list-style: none; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; }
 
 .site-footer { background: #17313b; color: #e6f1f4; margin-top: 40px; padding: 32px 16px 16px; }
-.footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+/* .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; } */
 .footer-title { font-weight: 700; font-size: 1.2rem; margin-bottom: .3em; }
-.footer-inner p { max-width: 46ch; }
-.footer-inner ul { list-style: none; padding: 0; margin: 0; }
-.site-footer a { color: #fff; display: inline-block; padding: 4px 0; }
+/* .footer-inner p { max-width: 46ch; }
+.footer-inner ul { list-style: none; padding: 0; margin: 0; } */
+/* .site-footer a { color: #fff; display: inline-block; padding: 4px 0; } */
 .copy { text-align: center; margin: 20px 0 0; font-size: .9rem; }
 
 
