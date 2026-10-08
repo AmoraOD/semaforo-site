@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header id="principal-menu" class="site-header sticky-top">
       <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Principal">
-        <div class="container-fluid mx-4">
+        <div class="container-fluid px-4">
 
           <a class="navbar-brand d-flex align-items-center gap-2" href="#/">
             <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true">
@@ -61,40 +61,46 @@
 
     <main id="root"></main>
 
-    <footer class="py-3 site-footer">
-      <div class="footer-inner d-flex">
+    <footer class="site-footer mt-auto">
+      <div class="container-fluid px-4 py-4">
 
-        <div class="me-auto">
-          <p class="footer-title">Jogo do Semáforo</p>
-          <div>
-            <p class="m-0">Projeto educativo sobre toques seguros.</p>
-            <p class="m-0">Conteúdo demonstrativo, não substitui orientação de profissionais.</p>
+        <div class="row g-4 align-items-start">
+
+          <div class="col-12 col-md-6">
+            <p class="fw-bold fs-5 mb-1">Jogo do Semáforo</p>
+
+            <div>
+              <p class="mb-0">Projeto educativo sobre toques seguros.</p>
+              <p class="mb-0">Conteúdo demonstrativo, não substitui orientação de profissionais.</p>
+            </div>
           </div>
+
+          <nav class="col-12 col-md-6" aria-label="Rodapé">
+            <ul class="nav flex-column flex-md-row justify-content-md-end gap-md-3 mb-0">
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/">Início</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/como-funciona">Como funciona</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/jogo">Jogo</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/informacoes">Informações</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-
-        <nav class="navbar navbar-dark" aria-label="Rodapé">
-          <ul class="navbar-nav d-flex flex-row gap-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#/">Início</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#/como-funciona">Como funciona</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#/jogo">Jogo</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#/informacoes">Informações</a>
-            </li>
-          </ul>
-        </nav>
 
       </div>
 
-      <p class="copy">© <span id="year"></span> Jogo do Semáforo. Todos os direitos reservados.</p>
+      <hr class="border-light opacity-25 my-3">
+
+      <p class="text-center small mb-0">© <span id="year"></span> Jogo do Semáforo. Todos os direitos reservados.</p>
     </footer>
 
     <script type="module" src="/js/main.js"></script>
