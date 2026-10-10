@@ -152,3 +152,6 @@ p { margin: 0 0 1em; }
   * { animation: none !important; transition: none !important; }
   .traffic-light .lamp { opacity: 1; }
 }
+.informativo-extra {
+margin-top: 32px;
+}
