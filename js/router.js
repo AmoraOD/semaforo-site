@@ -91,6 +91,11 @@ const router = new Router({
             await loadFragment("pages/informativos.html");
     },
 
+    "/download-page": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/download.html");
+    }, 
+
     "/sobre": async () => {
         document.getElementById("root").innerHTML =
             await loadFragment("pages/sobre.html");
