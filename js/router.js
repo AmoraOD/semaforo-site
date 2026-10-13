@@ -76,11 +76,6 @@ const router = new Router({
             await loadFragment("pages/inicio.html");
     },
 
-    "/como-funciona": async () => {
-        document.getElementById("root").innerHTML =
-            await loadFragment("pages/como-funciona.html");
-    },
-
     "/jogo": async () => {
         document.getElementById("root").innerHTML =
             await loadFragment("pages/jogo.html");
