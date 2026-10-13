@@ -95,6 +95,11 @@ const router = new Router({
             await loadFragment("pages/informativos.html");
     },
 
+    "/sobre": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/sobre.html");
+    },
+
     "/404": () => {
         document.getElementById("root").innerHTML =
             `<section class="frame"><h2>404</h2>
