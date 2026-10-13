@@ -24,11 +24,10 @@ const QUESTIONS = [
 const POINTS_PER_HIT = 10;
 const NAMES = { vermelho: "Vermelho", amarelo: "Amarelo", verde: "Verde" };
 
-const $ = (id) => document.getElementById(id);
-const screens = { start: $('screen-start'), play: $('screen-play'), result: $('screen-result') };
-const choiceBtns = document.querySelectorAll('.choice');
-let game = { questions: [], current: 0, score: 0, hits: 0, misses: 0, answered: false, playing: false };
-
+let game = {
+  questions: [], current: 0, score: 0, hits: 0, misses: 0,
+  answered: false, playing: false
+};
 
 function shuffle(list) {
   const a = [...list];
@@ -39,41 +38,77 @@ function shuffle(list) {
   return a;
 }
 
+function initJogo() {
+  const $ = (id) => document.getElementById(id);
+
+  const screens = {
+    start:  $('screen-start'),
+    play:   $('screen-play'),
+    result: $('screen-result')
+  };
+  const choiceBtns = document.querySelectorAll('.choice');
+
+  /* Se por algum motivo o fragmento não carregou, sai sem quebrar */
+  if (!screens.start || !screens.play || !screens.result) {
+    console.warn("initJogo: elementos do jogo não encontrados no DOM.");
+    return;
+  }
+
+
 function showScreen(name) {
   Object.entries(screens).forEach(([key, el]) => { el.hidden = key !== name; });
 }
 
-function startGame() {
-  game = { questions: shuffle(QUESTIONS), current: 0, score: 0, hits: 0, misses: 0, answered: false, playing: true };
-  showScreen('play');
-  renderQuestion();
+function updateScoreboard() {
+  const total = QUESTIONS.length;
+  const answeredCount = game.current + (game.answered ? 1 : 0);
+  $('stat-score').textContent   = game.score;
+  $('stat-hits').textContent    = game.hits;
+  $('stat-misses').textContent  = game.misses;
+  $('stat-question').textContent = `${game.playing ? game.current + 1 : 0}/${total}`;
+  $('progress-fill').style.width = `${(answeredCount / total) * 100}%`;
+  $('progress').setAttribute('aria-valuenow', answeredCount);
 }
 
 function renderQuestion() {
   const total = game.questions.length;
   game.answered = false;
+
   $('question-text').textContent = game.questions[game.current].pergunta;
   $('feedback').className = 'feedback';
   $('feedback').innerHTML = '';
   $('btn-next').hidden = true;
   $('mini-light').dataset.lit = 'none';
+
   choiceBtns.forEach((btn) => {
     btn.disabled = false;
     btn.classList.remove('is-correct', 'is-wrong');
     btn.querySelector('.tag').textContent = '';
   });
+
   $('progress-label').textContent = `Pergunta ${game.current + 1} de ${total}`;
   updateScoreboard();
   $('question-text').focus({ preventScroll: true });
 }
 
+function startGame() {
+  game = {
+    questions: shuffle(QUESTIONS), current: 0,
+    score: 0, hits: 0, misses: 0, answered: false, playing: true
+  };
+  showScreen('play');
+  renderQuestion();
+}
+
 function handleAnswer(chosen) {
-  if (game.answered) return; 
+  if (game.answered) return;
   game.answered = true;
+
   const q = game.questions[game.current];
   const correct = chosen === q.resposta;
 
-  if (correct) { game.hits++; game.score += POINTS_PER_HIT; } else { game.misses++; }
+  if (correct) { game.hits++; game.score += POINTS_PER_HIT; }
+  else         { game.misses++; }
 
   choiceBtns.forEach((btn) => {
     btn.disabled = true;
@@ -92,7 +127,7 @@ function handleAnswer(chosen) {
     ? `<strong>Correto! +${POINTS_PER_HIT} pontos.</strong> ${q.explicacao}`
     : `<strong>Não foi dessa vez.</strong> A resposta certa era ${NAMES[q.resposta]}. ${q.explicacao}`;
 
-  $('mini-light').dataset.lit = q.resposta; // acende a luz correta
+  $('mini-light').dataset.lit = q.resposta;
   updateScoreboard();
 
   const isLast = game.current === game.questions.length - 1;
@@ -103,34 +138,27 @@ function handleAnswer(chosen) {
 
 function nextQuestion() {
   game.current++;
-  if (game.current >= game.questions.length) showResult(); else renderQuestion();
-}
-
-function updateScoreboard() {
-  const total = QUESTIONS.length;
-  const answeredCount = game.current + (game.answered ? 1 : 0);
-  $('stat-score').textContent = game.score;
-  $('stat-hits').textContent = game.hits;
-  $('stat-misses').textContent = game.misses;
-  $('stat-question').textContent = `${game.playing ? game.current + 1 : 0}/${total}`;
-  $('progress-fill').style.width = `${(answeredCount / total) * 100}%`;
-  $('progress').setAttribute('aria-valuenow', answeredCount);
+  if (game.current >= game.questions.length) showResult();
+  else renderQuestion();
 }
 
 function showResult() {
   const total = game.questions.length;
   const percent = Math.round((game.hits / total) * 100);
   game.playing = false;
-  $('result-score').textContent = game.score;
-  $('result-hits').textContent = game.hits;
-  $('result-misses').textContent = game.misses;
+
+  $('result-score').textContent   = game.score;
+  $('result-hits').textContent    = game.hits;
+  $('result-misses').textContent  = game.misses;
   $('result-percent').textContent = `${percent}%`;
 
   let msg;
-  if (percent >= 90) msg = "Excelente! Você reconhece muito bem os toques seguros e os que não são.";
+  if (percent >= 90)msg = "Excelente! Você reconhece muito bem os toques seguros e os que não são.";
   else if (percent >= 60) msg = "Muito bem! Leia de novo as explicações e jogue mais uma vez.";
   else msg = "Vamos praticar mais! Jogue de novo, de preferência com um adulto de confiança.";
-  $('result-message').textContent = `${msg} Lembre-se: se um toque deixar você mal, conte a um adulto de confiança.`;
+
+  $('result-message').textContent =
+    `${msg} Lembre-se: se um toque deixar você mal, conte a um adulto de confiança.`;
 
   showScreen('result');
   $('mini-light').dataset.lit = 'none';
@@ -138,12 +166,23 @@ function showResult() {
   $('result-title').focus({ preventScroll: true });
 }
 
-choiceBtns.forEach((btn) => btn.addEventListener('click', () => handleAnswer(btn.dataset.color)));
+choiceBtns.forEach((btn) =>
+  btn.addEventListener('click', () => handleAnswer(btn.dataset.color))
+);
 $('btn-next').addEventListener('click', nextQuestion);
 $('btn-start').addEventListener('click', startGame);
 $('btn-restart').addEventListener('click', startGame);
 
-$('btn-comecar').addEventListener('click', () => { if (!game.playing) startGame(); });
-
-$('year').textContent = new Date().getFullYear();
+game = { questions: QUESTIONS, current: 0, score: 0, hits: 0, misses: 0,
+          answered: false, playing: false };
 updateScoreboard();
+}
+
+window.pageInit = {
+  jogo: initJogo
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+});

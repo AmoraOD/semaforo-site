@@ -80,9 +80,10 @@ const router = new Router({
         document.getElementById("root").innerHTML =
             await loadFragment("pages/jogo.html");
 
-        if (window.pageInit && typeof window.pageInit.jogo === "function") {
-            window.pageInit.jogo();
-        }
+        window.pageInit?.jogo?.();
+        // if (window.pageInit && typeof window.pageInit.jogo === "function") {
+        //     window.pageInit.jogo();
+        // }
     },
 
     "/informacoes": async () => {
