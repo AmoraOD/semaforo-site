@@ -60,6 +60,8 @@ body {
 .site-header :focus-visible { outline-color: #fff; }
 .site-footer { background: #ff751f; color: #e6f1f4; }
 
+#icon-flower-menu { width: 2rem; height: auto; }
+
 .btn-primary {
   --bs-btn-bg: var(--teal);
   --bs-btn-border-color: var(--teal);
