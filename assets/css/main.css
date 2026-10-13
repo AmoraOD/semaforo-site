@@ -87,7 +87,7 @@ body {
   padding: clamp(16px, 3vw, 36px);
   border: 2px solid var(--frame);
   border-radius: 1rem;
-  background: rgba(239, 246, 255, .85);
+  background: rgb(255, 253, 250);
 }
 .informativo-extra { margin-top: 32px; }
 
