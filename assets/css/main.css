@@ -46,7 +46,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
   background-color: #f3e6cf;
-  opacity: 0.8;
   background-image: radial-gradient(circle, #f0c17f 1.3199999999999998px, transparent 1.3199999999999998px);
   background-size: 16.5px 16.5px;
   overflow-x: hidden;

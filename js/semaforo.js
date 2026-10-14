@@ -1,4 +1,9 @@
-const LABEL = {vermelho: 'Vermelho', amarelo: 'Amarelo', verde: 'Verde'};
+const LABEL_CONFIG = {
+    vermelho: 'Vermelho',
+    amarelo: 'Amarelo',
+    verde: 'Verde'
+};
+
 const TOTAL = null;
 
 window.addEventListener('load', () => {
@@ -7,6 +12,6 @@ window.addEventListener('load', () => {
 
 class Semaforo{
     static Start() {
-
+        const label = LABEL_CONFIG.map(x => {});
     }
 }

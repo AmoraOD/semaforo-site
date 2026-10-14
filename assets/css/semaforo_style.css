@@ -1,0 +1,28 @@
+.body-stage{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.body-img{
+    display: block;
+    width: 50%;
+    height: auto;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+.token{
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 0, 0, .15);
+    
+    padding: 0;
+    cursor: grab; touch-action: none;
+    transition: transform .15s, box-shadow .15s, outline-color .15s;
+    outline: 3px solid transparent;
+    outline-offset: 3px;
+}
+
+.token:hover  { transform: translateY(-2px); }
+.token:active { cursor: grabbing; }
