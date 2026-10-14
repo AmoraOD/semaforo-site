@@ -179,7 +179,7 @@ updateScoreboard();
 }
 
 window.pageInit = {
-  jogo: initJogo
+  quiz: initJogo
 };
 
 document.addEventListener("DOMContentLoaded", () => {

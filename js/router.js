@@ -40,7 +40,12 @@ class Router {
     updateActiveLinks(path) {
         document.querySelectorAll("a[data-route]").forEach((a) => {
             const href = a.getAttribute("href") || "";
-            const isActive = href === `#${path}`;
+            const target = href.startsWith("#") ? href.slice(1) : href;
+
+            // const isActive = href === `#${path}`;
+            const isActive =
+                target === path || (target !== "/" && path.startsWith(target + "/"));
+
             a.classList.toggle("active", isActive);
             if (isActive) a.setAttribute("aria-current", "page");
             else a.removeAttribute("aria-current");
@@ -80,10 +85,14 @@ const router = new Router({
         document.getElementById("root").innerHTML =
             await loadFragment("pages/jogos.html");
 
-        window.pageInit?.jogos?.();
-        // if (window.pageInit && typeof window.pageInit.jogo === "function") {
-        //     window.pageInit.jogo();
-        // }
+        // window.pageInit?.jogos?.();
+    },
+
+    "/jogos/quiz": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/games/quiz.html");
+
+            window.pageInit?.quiz?.();
     },
 
     "/informacoes": async () => {
