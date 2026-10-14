@@ -84,8 +84,6 @@ const router = new Router({
     "/jogos": async () => {
         document.getElementById("root").innerHTML =
             await loadFragment("pages/jogos.html");
-
-        // window.pageInit?.jogos?.();
     },
 
     "/jogos/quiz": async () => {
@@ -93,6 +91,11 @@ const router = new Router({
             await loadFragment("pages/games/quiz.html");
 
             window.pageInit?.quiz?.();
+    },
+
+    "/jogos/semaforo": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/games/semaforo.html");
     },
 
     "/informacoes": async () => {
