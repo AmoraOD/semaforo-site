@@ -76,11 +76,11 @@ const router = new Router({
             await loadFragment("pages/inicio.html");
     },
 
-    "/jogo": async () => {
+    "/jogos": async () => {
         document.getElementById("root").innerHTML =
-            await loadFragment("pages/jogo.html");
+            await loadFragment("pages/jogos.html");
 
-        window.pageInit?.jogo?.();
+        window.pageInit?.jogos?.();
         // if (window.pageInit && typeof window.pageInit.jogo === "function") {
         //     window.pageInit.jogo();
         // }
