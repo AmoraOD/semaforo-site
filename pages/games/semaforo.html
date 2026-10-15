@@ -4,12 +4,24 @@
         <section id="section-buttons-semaforo" class="col-12 col-md-4 col-lg-4">
             <div class="card h-100">
                 <div class="card-body">
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-warning" id="change-boy">
+                            <img id="icon-boy-button" src="/assets/img/icons/icon-boy-semaforo.svg" alt="svg-boy-icon">
+                        </button>
+
+                        <button class="btn btn-warning" id="change-girl">
+                            <img id="icon-girl-button" src="/assets/img/icons/icon-girl-semaforo.svg" alt="svg-girl-icon">
+                        </button>
+                    </div>
+
+                    <hr>
+
                     <h1 class="text-center fw-bold">Cores</h1>
                     <p class="small text-muted text-center">
                         🔴 Não pode • 🟡 Atenção • 🟢 Pode
                     </p>
 
-                    <hr>
+                    <br>
 
                     <div id="btn-pallete" class="traffic-light d-flex flex-row flex-md-column flex-wrap
                     gap-3 justify-content-center align-items-center">
@@ -40,18 +52,35 @@
                 <div class="card-body d-flex justify-content-center">
 
                     <!-- CORPO MENINO -->
-                    <div class="body-stage">
+                    <div id="body-container-boy" class="body-stage" active="true">
                         <img class="body-img" src="assets/img/garoto-semaforo.png" alt="body-boy" draggable="false">
 
                         <div id="head" class="drop-zone" style="top: 11%; left: 50%;" data-correct="verde"></div>
                         <div id="chest" class="drop-zone" style="top: 41%; left: 50%;" data-correct="amarelo"></div>
                         <div id="belly" class="drop-zone" style="top: 54%; left: 50%;" data-correct="amarelo"></div>
-                        
+
                         <div id="left-hand" class="drop-zone" style="top: 51%; left: 18%;" data-correct="verde"></div>
                         <div id="right-hand" class="drop-zone" style="top: 51%; left: 81%;" data-correct="verde"></div>
-                        
+
                         <div id="bottom" class="drop-zone" style="top: 65%; left: 50%;" data-correct="vermelho"></div>
-                        
+
+                        <div id="left-feet" class="drop-zone" style="top: 82%; left: 36%;" data-correct="verde"></div>
+                        <div id="right-feet" class="drop-zone" style="top: 82%; left: 64%;" data-correct="verde"></div>
+                    </div>
+
+                    <!-- CORPO MENINA -->
+                    <div id="body-container-girl" class="body-stage" active="false" style="display: none;">
+                        <img class="body-img" src="assets/img/garota-semaforo.png" alt="body-girl" draggable="false">
+
+                        <div id="head" class="drop-zone" style="top: 11%; left: 50%;" data-correct="verde"></div>
+                        <div id="chest" class="drop-zone" style="top: 41%; left: 50%;" data-correct="vermelho"></div>
+                        <div id="belly" class="drop-zone" style="top: 54%; left: 50%;" data-correct="amarelo"></div>
+
+                        <div id="left-hand" class="drop-zone" style="top: 51%; left: 18%;" data-correct="verde"></div>
+                        <div id="right-hand" class="drop-zone" style="top: 51%; left: 81%;" data-correct="verde"></div>
+
+                        <div id="bottom" class="drop-zone" style="top: 65%; left: 50%;" data-correct="vermelho"></div>
+
                         <div id="left-feet" class="drop-zone" style="top: 82%; left: 36%;" data-correct="verde"></div>
                         <div id="right-feet" class="drop-zone" style="top: 82%; left: 64%;" data-correct="verde"></div>
                     </div>

@@ -9,6 +9,12 @@ class Semaforo {
     static offsetX = 0; static offsetY = 0;
     static hits = 0; static misses = 0;
 
+    static activeBody = 'boy';
+    static boyBtn     = null;
+    static girlBtn    = null;
+    static girlContainer = null;
+    static boyContainer  = null;
+
     static Start() {
         this.tokens = document.querySelectorAll('#btn-pallete .token');
 
@@ -27,6 +33,14 @@ class Semaforo {
         });
 
         this.resetBtn?.addEventListener('click', () => this.resetGame());
+    }
+
+    static changeBody() {
+        const boyBtn = document.getElementById('change-boy');
+        const girlBtn = document.getElementById('change-girl');
+
+        const boyContainer = document.getElementById('body-container-boy');
+        const girlContainer = document.getElementById('body-container-girl');
     }
 
     static resetGame() {
@@ -107,6 +121,7 @@ class Semaforo {
             placedToken.className = `token ${chosen}`;
             placedToken.dataset.color = chosen;
             placedToken.setAttribute('aria-hidden', 'true');
+
             dropZone.appendChild(placedToken);
 
             this.hits++;

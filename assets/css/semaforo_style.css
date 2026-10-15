@@ -6,6 +6,8 @@
     75% {transform: translate(calc(-50% + 6px), -50%); }
 }
 
+#icon-girl-button, #icon-boy-button { width: 4rem; height: auto; }
+
 .body-stage {
     position: relative;
     display: block;
