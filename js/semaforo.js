@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    Semaforo.Start();
+    Semaforo.Start(); 
 });
 
 class Semaforo {
@@ -33,14 +33,28 @@ class Semaforo {
         });
 
         this.resetBtn?.addEventListener('click', () => this.resetGame());
+
+        document.getElementById('change-boy')?.addEventListener('click', () => this.changeBody('boy'));
+        document.getElementById('change-girl')?.addEventListener('click', () => this.changeBody('girl'));
     }
 
-    static changeBody() {
-        const boyBtn = document.getElementById('change-boy');
-        const girlBtn = document.getElementById('change-girl');
+    static changeBody(gender) {
+        if (this.activeBody === gender) return;
+
+        this.activeBody = gender;
 
         const boyContainer = document.getElementById('body-container-boy');
         const girlContainer = document.getElementById('body-container-girl');
+
+        if (gender === 'boy') {
+            boyContainer.style.display = 'block';
+            girlContainer.style.display = 'none';
+        } else {
+            boyContainer.style.display = 'none';
+            girlContainer.style.display = 'block';
+        }
+
+        this.resetGame();
     }
 
     static resetGame() {
@@ -116,7 +130,6 @@ class Semaforo {
             dropZone.classList.add('filled', 'is-correct');
             dropZone.classList.remove('is-wrong');
 
-            // Coloca o token dentro da zona
             const placedToken = document.createElement('div');
             placedToken.className = `token ${chosen}`;
             placedToken.dataset.color = chosen;
@@ -134,10 +147,7 @@ class Semaforo {
 
             this.misses++;
             this.missesEl.textContent = this.misses;
-            this.showFeedback(
-                `Ops! Aqui é outra cor.`,
-                'bad'
-            );
+            this.showFeedback(`Ops! Aqui é outra cor.`, 'bad');
 
             setTimeout(() => dropZone.classList.remove('is-wrong'), 800);
         }
@@ -154,11 +164,14 @@ class Semaforo {
     }
 
     static checkEnd() {
-        const total = document.querySelectorAll('.drop-zone').length;
+        // Pega o container do personagem ativo
+        const activeContainer = document.getElementById(`body-container-${this.activeBody}`);
+        
+        // Conta apenas as drop-zones do personagem visível
+        const total = activeContainer.querySelectorAll('.drop-zone').length;
 
         if (this.hits === total && this.feedbackEl) {
-            this.feedbackEl.textContent =
-                `Parabéns! 🎉 Você acertou ${total} pontos.`;
+            this.feedbackEl.textContent = `Parabéns! 🎉 Você acertou ${total} pontos.`;
             this.feedbackEl.dataset.state = 'ok';
         }
     }
