@@ -1,13 +1,18 @@
-.body-stage{
+.body-stage {
     position: relative;
     display: block;
     width: 100%;
+    /* Define o tamanho máximo que o boneco pode ter na tela */
+    max-width: 350px; 
+    /* A MÁGICA ACONTECE AQUI: Trava a proporção exata da imagem 307x672 */
+    aspect-ratio: 307 / 672; 
+    margin: 0 auto; /* Centraliza na tela */
 }
 
-.body-img{
+.body-img {
     display: block;
-    width: 50%;
-    height: auto;
+    width: 100%;
+    height: 100%; /* Preenche todo o body-stage */
     pointer-events: none;
     -webkit-user-drag: none;
 }
@@ -24,5 +29,46 @@
     outline-offset: 3px;
 }
 
+.token.vermelho {background-color: #c10404;}
+.token.amarelo  {background-color: #ffc500;}
+.token.verde    {background-color: #126d00;}
+
 .token:hover  { transform: translateY(-2px); }
 .token:active { cursor: grabbing; }
+
+.drop-zone {
+    position: absolute;
+    /* Como o container tem a mesma proporção da imagem, a % agora é infalível */
+    width: 10%; /* Aproximadamente o tamanho das bolinhas na imagem */
+    aspect-ratio: 1 / 1; /* Garante que a drop-zone seja um círculo perfeito */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.4); /* Mantenha vermelho para debug */
+    border: 2px dashed white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.drop-zone.filled {
+    border: none;
+    background-color: transparent;
+}
+
+.ghost-token {
+    position: fixed;
+    pointer-events: none;
+    z-index: 400;
+    opacity: 0.8;
+    margin: 0;
+    transform: scale(1.1);
+}
+
+.drop-zone .token {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    cursor: default;
+    transform: none !important; /* Remove o hover */
+}

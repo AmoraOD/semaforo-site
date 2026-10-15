@@ -1,3 +1,5 @@
+import Semaforo from "./semaforo.js";
+
 const fragmentCache = new Map();
 
 async function loadFragment(path) {
@@ -96,6 +98,9 @@ const router = new Router({
     "/jogos/semaforo": async () => {
         document.getElementById("root").innerHTML =
             await loadFragment("pages/games/semaforo.html");
+
+            const module = Semaforo;
+            module.Start();
     },
 
     "/informacoes": async () => {

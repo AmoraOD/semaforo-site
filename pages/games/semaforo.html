@@ -8,9 +8,9 @@
 
                     <div id="btn-pallete" class="d-flex flex-row flex-md-column flex-wrap
                     gap-3 justify-content-center align-items-center">
-                        <button class="token" type="button" data-color="vermelho"></button>
-                        <button class="token" type="button" data-color="amarelo"></button>
-                        <button class="token" type="button" data-color="verde"></button>
+                        <button class="token vermelho" type="button" data-color="vermelho"></button>
+                        <button class="token amarelo" type="button" data-color="amarelo"></button>
+                        <button class="token verde" type="button" data-color="verde"></button>
                     </div>
                 </div>
             </div>
@@ -18,9 +18,22 @@
 
         <section id="section-body" class="col-12 col-md-8 col-lg-9">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-center">
+
                     <div class="body-stage">
                         <img class="body-img" src="assets/img/garoto-semaforo.png" alt="body-girl" draggable="false">
+
+                        <div id="head" class="drop-zone" style="top: 11%; left: 50%;"></div>
+                        <div id="chest" class="drop-zone" style="top: 41%; left: 50%;"></div>
+                        <div id="belly" class="drop-zone" style="top: 54%; left: 50%;"></div>
+                        
+                        <div id="left-hand" class="drop-zone" style="top: 51%; left: 18%;"></div>
+                        <div id="right-hand" class="drop-zone" style="top: 51%; left: 81%;"></div>
+                        
+                        <div id="bottom" class="drop-zone" style="top: 65%; left: 50%;"></div>
+                        
+                        <div id="left-feet" class="drop-zone" style="top: 82%; left: 36%;"></div>
+                        <div id="right-feet" class="drop-zone" style="top: 82%; left: 64%;"></div>
                     </div>
                 </div>
             </div>
