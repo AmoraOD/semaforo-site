@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proteger Todo Dia</title>
+    </style>
+    <meta name="description" content="Site educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/icons/flower-svgrepo-icon.ico" type="image/x-icon">
+  </head>
+  
+
+  <body class="d-flex flex-column min-vh-100" >
+    
+    <header id="principal-menu" class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Principal">
+      
+        <div class="container-fluid px-4">
+
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#/">
+            <img id="icon-flower-menu" src="assets/img/icons/flower-svgrepo-com.svg" alt="flower-may-orange">
+            Proteger Todo Dia
+          </a>
+
+          <button class="navbar-toggler" type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#menu-links"
+                  aria-controls="menu-links"
+                  aria-expanded="false"
+                  aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu-links">
+            <ul class="navbar-nav ms-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/" data-route>Início</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/jogos" data-route>Jogos</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/informacoes" data-route>Informações</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/download-page" data-route>Download</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/sobre" data-route>Sobre nós</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+   
+    </header>
+     <div> 
+          <img  id="banner" src="assets/img/img/é Todo Dia..png" alt="">
+        </div>
+
+    <main id="root">
+     
+    </main>
+
+    <footer class="site-footer mt-auto">
+      <div class="container-fluid px-4 py-4">
+
+        <div class="row g-4 align-items-start">
+
+          <div class="col-12 col-md-6">
+            <p class="fw-bold fs-5 mb-1 text-center">Proteger Todo dia</p>
+
+            <div class="text-center">
+              <p class="mb-0">Projeto educativo sobre prevenção ao abuso infanitl.</p>
+              <p class="mb-0">Conteúdo demonstrativo, não substitui orientação de profissionais.</p>
+            </div>
+          </div>
+
+          <nav class="col-12 col-md-6" aria-label="Rodapé">
+            <ul class="nav flex-column flex-md-row justify-content-md-end gap-md-3 mb-0">
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/">Início</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/jogos">Jogos</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/informacoes">Informações</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/download-page">Download</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/sobre">Sobre Nós</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+
+      <hr class="border-light opacity-25 my-3">
+
+      <p class="text-center small mb-3">© <span id="year"></span> Projeto Proteger. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/router.js"></script>
+    <script type="module" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

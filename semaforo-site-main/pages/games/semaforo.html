@@ -1,0 +1,93 @@
+<section id="semaforo" class="frame">
+    <div class="row g-4">
+        
+        <section id="section-buttons-semaforo" class="col-12 col-md-4 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-warning" id="change-boy">
+                            <img id="icon-boy-button" src="/assets/img/icons/icon-boy-semaforo.svg" alt="svg-boy-icon">
+                        </button>
+
+                        <button class="btn btn-warning" id="change-girl">
+                            <img id="icon-girl-button" src="/assets/img/icons/icon-girl-semaforo.svg" alt="svg-girl-icon">
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <h1 class="text-center fw-bold">Cores</h1>
+                    <p class="small text-muted text-center">
+                        🔴 Não pode • 🟡 Atenção • 🟢 Pode
+                    </p>
+
+                    <br>
+
+                    <div id="btn-pallete" class="traffic-light d-flex flex-row flex-md-column flex-wrap gap-3 justify-content-center align-items-center mx-auto w-auto">
+                        <button class="token vermelho" type="button" data-color="vermelho"></button>
+                        <button class="token amarelo" type="button" data-color="amarelo"></button>
+                        <button class="token verde" type="button" data-color="verde"></button>
+                    </div>
+
+                    <hr>
+
+                    <p class="mb-1 small text-center">
+                        Acertos: <strong id="sf-hits">0</strong> •
+                        Erros: <strong id="sf-misses">0</strong>
+                    </p>
+
+                    <h5 class="mb-2 text-center" id="sf-feedback" aria-live="polite"></h5>
+
+                    <button class="btn btn-primary btn-sm d-flex align-items-center mx-auto" type="button" id="btn-reset">
+                        Reiniciar
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="section-body" class="col-12 col-md-8 col-lg-8">
+            <div class="card h-100">
+                <div class="card-body d-flex justify-content-center">
+
+                    <!-- CORPO MENINO -->
+                    <div id="body-container-boy" class="body-stage" active="true">
+                        <img class="body-img" src="assets/img/garoto-semaforo.png" alt="body-boy" draggable="false">
+
+                        <div data-part="head" class="drop-zone" style="top: 11%; left: 50%;" data-correct="verde"></div>
+                        <div data-part="chest" class="drop-zone" style="top: 41%; left: 50%;" data-correct="amarelo"></div>
+                        <div data-part="belly" class="drop-zone" style="top: 54%; left: 50%;" data-correct="amarelo"></div>
+
+                        <div data-part="left-hand" class="drop-zone" style="top: 51%; left: 18%;" data-correct="verde"></div>
+                        <div data-part="right-hand" class="drop-zone" style="top: 51%; left: 81%;" data-correct="verde"></div>
+
+                        <div data-part="bottom" class="drop-zone" style="top: 65%; left: 50%;" data-correct="vermelho"></div>
+
+                        <div data-part="left-feet" class="drop-zone" style="top: 82%; left: 36%;" data-correct="verde"></div>
+                        <div data-part="right-feet" class="drop-zone" style="top: 82%; left: 64%;" data-correct="verde"></div>
+                    </div>
+
+                    <!-- CORPO MENINA -->
+                    <div id="body-container-girl" class="body-stage" active="false" style="display: none;">
+                        <img class="body-img" src="assets/img/garota-semaforo.png" alt="body-girl" draggable="false">
+
+                        <div data-part="head" class="drop-zone" style="top: 12%; left: 49%;" data-correct="verde"></div>
+                        <div data-part="chest" class="drop-zone" style="top: 42%; left: 49%;" data-correct="vermelho"></div>
+                        <div data-part="belly" class="drop-zone" style="top: 55%; left: 49%;" data-correct="amarelo"></div>
+
+                        <div data-part="left-hand" class="drop-zone" style="top: 52%; left: 18%;" data-correct="verde"></div>
+                        <div data-part="right-hand" class="drop-zone" style="top: 52%; left: 80%;" data-correct="verde"></div>
+
+                        <div data-part="bottom" class="drop-zone" style="top: 66%; left: 49%;" data-correct="vermelho"></div>
+
+                        <div data-part="left-feet" class="drop-zone" style="top: 83%; left: 34%;" data-correct="verde"></div>
+                        <div data-part="right-feet" class="drop-zone" style="top: 83%; left: 63%;" data-correct="verde"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>
+
+<link rel="stylesheet" href="/assets/css/semaforo_style.css">
