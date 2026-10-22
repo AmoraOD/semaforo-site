@@ -1,9 +1,10 @@
 <section id="semaforo" class="frame">
-    <div class="row g-4">
-        
+    <div class="row g-3 g-md-4">
+
         <section id="section-buttons-semaforo" class="col-12 col-md-4 col-lg-4">
             <div class="card h-100">
                 <div class="card-body">
+
                     <div class="d-flex justify-content-center gap-2">
                         <button class="btn btn-warning" id="change-boy">
                             <img id="icon-boy-button" src="/assets/img/icons/icon-boy-semaforo.svg" alt="svg-boy-icon">
@@ -16,31 +17,33 @@
 
                     <hr>
 
-                    <h1 class="text-center fw-bold">Cores</h1>
-                    <p class="small text-muted text-center">
+                    <h1 class="text-center fw-bold sf-title">Cores</h1>
+                    <p class="small text-muted text-center sf-legend">
                         🔴 Não pode • 🟡 Atenção • 🟢 Pode
                     </p>
 
                     <br>
 
-                    <div id="btn-pallete" class="traffic-light d-flex flex-row flex-md-column flex-wrap gap-3 justify-content-center align-items-center mx-auto w-auto">
-                        <button class="token vermelho" type="button" data-color="vermelho"></button>
-                        <button class="token amarelo" type="button" data-color="amarelo"></button>
-                        <button class="token verde" type="button" data-color="verde"></button>
+                    <div id="btn-pallete" class="traffic-light">
+                        <button class="token vermelho" type="button" data-color="vermelho" aria-label="Vermelho"></button>
+                        <button class="token amarelo"  type="button" data-color="amarelo"  aria-label="Amarelo"></button>
+                        <button class="token verde"    type="button" data-color="verde"    aria-label="Verde"></button>
                     </div>
 
                     <hr>
 
-                    <p class="mb-1 small text-center">
-                        Acertos: <strong id="sf-hits">0</strong> •
-                        Erros: <strong id="sf-misses">0</strong>
-                    </p>
+                    <div class="sf-status">
+                        <p class="mb-0 small text-center">
+                            Acertos: <strong id="sf-hits">0</strong> •
+                            Erros: <strong id="sf-misses">0</strong>
+                        </p>
 
-                    <h5 class="mb-2 text-center" id="sf-feedback" aria-live="polite"></h5>
+                        <h5 class="mb-0 text-center" id="sf-feedback" aria-live="polite"></h5>
 
-                    <button class="btn btn-primary btn-sm d-flex align-items-center mx-auto" type="button" id="btn-reset">
-                        Reiniciar
-                    </button>
+                        <button class="btn btn-primary btn-sm" type="button" id="btn-reset">
+                            Reiniciar
+                        </button>
+                    </div>
 
                 </div>
             </div>

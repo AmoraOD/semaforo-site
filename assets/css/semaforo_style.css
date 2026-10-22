@@ -1,20 +1,70 @@
-/* ========= ANIMAÇÃO ========= */
+/* ================= ANIMAÇÃO ================= */
 
 @keyframes shake {
-    0%, 100% {transform: translate(-50%, -50%); }
-    25% {transform: translate(calc(-50% - 6px), -50%); }
-    75% {transform: translate(calc(-50% + 6px), -50%); }
+    0%, 100% { transform: translate(-50%, -50%); }
+    25%      { transform: translate(calc(-50% - 6px), -50%); }
+    75%      { transform: translate(calc(-50% + 6px), -50%); }
 }
 
-#icon-girl-button, #icon-boy-button { width: 4rem; height: auto; }
+#icon-girl-button, #icon-boy-button {
+    width: 3.5rem;
+    height: auto;
+}
+
+/* ================= PALETA ================= */
+
+#btn-pallete {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+}
+
+/* ================= BONECO =================
+   O tamanho é controlado por 2 variáveis em #semaforo:
+
+   --sf-body-max : largura MÁXIMA do boneco no breakpoint atual
+                   (é a "alavanca" principal; altura = largura × 672/307)
+   --sf-chrome   : altura aproximada ocupada ACIMA do boneco
+                   (header do site + controles + espaçamentos)
+
+   Além do --sf-body-max, o width também é limitado por
+   (100svh − --sf-chrome) × 307/672, então o boneco nunca
+   fica mais alto que a tela. Se ainda cortar, AUMENTE --sf-chrome
+   ou DIMINUA --sf-body-max nesse breakpoint. */
+
+#semaforo {
+    --sf-chrome: 160px;
+    --sf-body-max: 380px;
+}
 
 .body-stage {
     position: relative;
     display: block;
-    width: 100%;
-    max-width: 350px;
-    aspect-ratio: 307 / 672; 
+    aspect-ratio: 307 / 672;
     margin: 0 auto;
+    max-width: 100%;
+    width: min(
+        var(--sf-body-max),
+        100%,
+        calc((100svh - var(--sf-chrome)) * 307 / 672)
+    );
+
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+@supports not (height: 100svh) {
+    .body-stage {
+        width: min(
+            var(--sf-body-max),
+            100%,
+            calc((100vh - var(--sf-chrome)) * 307 / 672)
+        );
+    }
 }
 
 .body-img {
@@ -25,23 +75,29 @@
     -webkit-user-drag: none;
 }
 
-.token{
-    width: 64px; height: 64px;
+/* ================= TOKENS ================= */
+
+.token {
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
     border: 3px solid rgba(0, 0, 0, .15);
-    
+
     padding: 0;
-    cursor: grab; touch-action: none;
+    cursor: grab;
+    touch-action: none;
     transition: transform .15s, box-shadow .15s, outline-color .15s;
     outline: 3px solid transparent;
     outline-offset: 3px;
 }
 
-.token.vermelho {background-color: #c10404;}
-.token.amarelo  {background-color: #ffc500;}
-.token.verde    {background-color: #126d00;}
+.token.vermelho { background-color: #c10404; }
+.token.amarelo  { background-color: #ffc500; }
+.token.verde    { background-color: #126d00; }
 
 .token:active { cursor: grabbing; }
+
+/* ================= ZONAS DE SOLTURA ================= */
 
 .drop-zone {
     position: absolute;
@@ -57,15 +113,19 @@
     transition: all 0.2s ease;
 }
 
-.drop-zone.is-correct {
-    border: none;
-    background-color: transparent;
-}
+.drop-zone.is-correct { border: none; background-color: transparent; }
 
 .drop-zone.is-wrong {
-  background-color: rgba(193, 4, 4, .35);
-  border-color: #c10404;
-  animation: shake .35s ease;
+    background-color: rgba(193, 4, 4, .35);
+    border-color: #c10404;
+    animation: shake .35s ease;
+}
+
+.drop-zone .token {
+    cursor: default;
+    width: 100%;
+    height: 100%;
+    border-width: 2px;
 }
 
 .ghost-token {
@@ -77,8 +137,88 @@
     transform: scale(1.1);
 }
 
-.drop-zone .token { cursor: default; }
+/* alvo maior em telas de toque */
+@media (pointer: coarse) {
+    .drop-zone { width: 26%; }
+}
+
+/* ================= FEEDBACK ================= */
 
 #sf-feedback { min-height: 1.2em; }
 #sf-feedback[data-state="ok"]  { color: #126d00; font-weight: 600; }
 #sf-feedback[data-state="bad"] { color: #c10404; font-weight: 600; }
+
+.sf-status {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* desktop: paleta em linha (como você já usa) */
+#section-body .card-body { align-items: center; }
+
+/* ---------- TABLET ---------- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #semaforo { --sf-body-max: 320px; }
+}
+
+/* ---------- CELULAR EM PÉ ---------- */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    #semaforo {
+        --sf-chrome: 300px;
+        --sf-body-max: 260px;
+    }
+
+    #section-buttons-semaforo .card-body { padding: .5rem .75rem; }
+    #section-buttons-semaforo hr { margin: .5rem 0; }
+    #section-buttons-semaforo br { display: none; }
+
+    .sf-title  { font-size: 1rem; margin-bottom: .25rem; }
+    .sf-legend { font-size: .8rem; margin-bottom: .5rem; }
+
+    #icon-girl-button, #icon-boy-button { width: 2.5rem; }
+
+    #btn-pallete { gap: .75rem; }
+    .token { width: 52px; height: 52px; }
+
+    #section-body .card-body { padding: .5rem; }
+
+    .sf-status { font-size: .9rem; }
+    #sf-feedback { font-size: 1rem; }
+}
+
+/* celulares pequenos em pé (iPhone SE etc) */
+@media (max-width: 420px) and (orientation: portrait) {
+    #semaforo { --sf-body-max: 220px; }
+}
+
+/* ---------- CELULAR DEITADO ---------- */
+@media (orientation: landscape) and (max-height: 600px) {
+    #semaforo {
+        --sf-chrome: 100px;
+        --sf-body-max: 200px;
+    }
+
+    #section-buttons-semaforo { flex: 0 0 38%; max-width: 38%; }
+    #section-body            { flex: 0 0 62%; max-width: 62%; }
+
+    #section-buttons-semaforo .card-body { padding: .5rem; }
+    #section-buttons-semaforo hr { margin: .25rem 0; }
+
+    #section-buttons-semaforo br,
+    .sf-title,
+    .sf-legend { display: none; }
+
+    #icon-girl-button, #icon-boy-button { width: 2.25rem; }
+
+    #btn-pallete { flex-direction: row; gap: .5rem; }
+    .token { width: 44px; height: 44px; }
+
+    #section-body .card-body { padding: .25rem; }
+}
+
+@media (orientation: landscape) and (max-height: 450px) {
+    #semaforo { --sf-body-max: 150px; }
+}
