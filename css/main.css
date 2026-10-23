@@ -155,3 +155,79 @@ p { margin: 0 0 1em; }
 .informativo-extra {
 margin-top: 32px;
 }
+
+/* Melhorias do jogo para celulares */
+@media (max-width: 600px) {
+  #jogo {
+    padding: 16px 12px;
+  }
+
+  .game-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-width: 0;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .stats div {
+    padding: 10px 6px;
+  }
+
+  .stage {
+    min-height: 0;
+    padding: 18px 14px;
+    min-width: 0;
+  }
+
+  .stage h3 {
+    overflow-wrap: anywhere;
+  }
+
+  #question-text {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .choices {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .choice {
+    width: 100%;
+    min-height: 56px;
+    padding: 12px;
+    font-size: 1rem;
+    touch-action: manipulation;
+  }
+
+  #btn-start,
+  #btn-next,
+  #btn-restart {
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .feedback {
+    padding: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .result-list {
+    gap: 10px;
+  }
+}
