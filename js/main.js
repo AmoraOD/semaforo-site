@@ -185,4 +185,40 @@ window.pageInit = {
 document.addEventListener("DOMContentLoaded", () => {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  Grafico.Start();
 });
+
+class Grafico{
+  static Start() {
+    const ctx = document.getElementById('myChart');
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+          }
+        }
+      }
+    };
+
+
+    const data = {
+      labels: ['2015', '2020' ,'2025'],
+      datasets: {
+        label: 'Dataset',
+        data: Utils.numbers({count: 6, min: -100, max: 100}),
+        borderColor: Utils.CHART_COLORS.red,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+        pointStyle: 'rect',
+        pointRadius: 10,
+        pointHoverRadius: 15
+      }
+    };
+  }
+}
