@@ -45,7 +45,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
-  background-image: url(/assets/img/imgdefundo.png);
+  background-image: url(/assets/img/imgdefundo.webp);
   overflow-x: hidden;  
 }
 
