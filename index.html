@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Semáforo do Toque</title>
-    <meta name="description" content="Jogo educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
+    <title>Proteger Todo Dia</title>
+    <meta name="description" content="Site educativo que ensina crianças a reconhecer toques seguros, de atenção e proibidos.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/icons/flower-svgrepo-icon.ico" type="image/x-icon">
+
+    <script> window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); }; </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -15,13 +19,8 @@
         <div class="container-fluid px-4">
 
           <a class="navbar-brand d-flex align-items-center gap-2" href="#/">
-            <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true">
-              <rect width="22" height="30" rx="6" fill="#263238"/>
-              <circle cx="11" cy="7"  r="3.5" fill="#ff6b5e"/>
-              <circle cx="11" cy="15" r="3.5" fill="#ffd23f"/>
-              <circle cx="11" cy="23" r="3.5" fill="#4cd07d"/>
-            </svg>
-            Semáforo do Toque
+            <img id="icon-flower-menu" src="assets/img/icons/flower-svgrepo-com.svg" alt="flower-may-orange">
+            Proteger Todo Dia
           </a>
 
           <button class="navbar-toggler" type="button"
@@ -37,21 +36,24 @@
             <ul class="navbar-nav ms-auto">
               
               <li class="nav-item">
-                <a class="nav-link" href="#/" data-route>Início</a>
+                <a class="nav-link fw-bold" href="#/" data-route>Início</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#/como-funciona" data-route>Como Funciona</a>
+                <a class="nav-link fw-bold" href="#/jogos" data-route>Jogos</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#/jogo" data-route>Jogo</a>
+                <a class="nav-link fw-bold" href="#/informacoes" data-route>Informações</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#/informacoes" data-route>Informações</a>
+                <a class="nav-link fw-bold" href="#/download-page" data-route>Download</a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#/sobre" data-route>Sobre nós</a>
+              </li>
             </ul>
           </div>
 
@@ -67,10 +69,10 @@
         <div class="row g-4 align-items-start">
 
           <div class="col-12 col-md-6">
-            <p class="fw-bold fs-5 mb-1">Jogo do Semáforo</p>
+            <p class="fw-bold fs-5 mb-1 text-center">Proteger Todo dia</p>
 
-            <div>
-              <p class="mb-0">Projeto educativo sobre toques seguros.</p>
+            <div class="text-center">
+              <p class="mb-0">Projeto educativo sobre prevenção ao abuso infantil.</p>
               <p class="mb-0">Conteúdo demonstrativo, não substitui orientação de profissionais.</p>
             </div>
           </div>
@@ -82,15 +84,19 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link p-0 text-white" href="#/como-funciona">Como funciona</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link p-0 text-white" href="#/jogo">Jogo</a>
+                <a class="nav-link p-0 text-white" href="#/jogos">Jogos</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link p-0 text-white" href="#/informacoes">Informações</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/download-page">Download</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link p-0 text-white" href="#/sobre">Sobre Nós</a>
               </li>
             </ul>
           </nav>
@@ -100,7 +106,7 @@
 
       <hr class="border-light opacity-25 my-3">
 
-      <p class="text-center small mb-0">© <span id="year"></span> Jogo do Semáforo. Todos os direitos reservados.</p>
+      <p class="text-center small mb-3">© <span id="year"></span> Projeto Proteger. Todos os direitos reservados.</p>
     </footer>
 
     <script type="module" src="/js/main.js"></script>

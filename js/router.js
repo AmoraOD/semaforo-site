@@ -1,3 +1,5 @@
+import Semaforo from "./semaforo.js";
+
 const fragmentCache = new Map();
 
 async function loadFragment(path) {
@@ -40,7 +42,12 @@ class Router {
     updateActiveLinks(path) {
         document.querySelectorAll("a[data-route]").forEach((a) => {
             const href = a.getAttribute("href") || "";
-            const isActive = href === `#${path}`;
+            const target = href.startsWith("#") ? href.slice(1) : href;
+
+            // const isActive = href === `#${path}`;
+            const isActive =
+                target === path || (target !== "/" && path.startsWith(target + "/"));
+
             a.classList.toggle("active", isActive);
             if (isActive) a.setAttribute("aria-current", "page");
             else a.removeAttribute("aria-current");
@@ -76,23 +83,39 @@ const router = new Router({
             await loadFragment("pages/inicio.html");
     },
 
-    "/como-funciona": async () => {
+    "/jogos": async () => {
         document.getElementById("root").innerHTML =
-            await loadFragment("pages/como-funciona.html");
+            await loadFragment("pages/jogos.html");
     },
 
-    "/jogo": async () => {
+    "/jogos/quiz": async () => {
         document.getElementById("root").innerHTML =
-            await loadFragment("pages/jogo.html");
+            await loadFragment("pages/games/quiz.html");
 
-        if (window.pageInit && typeof window.pageInit.jogo === "function") {
-            window.pageInit.jogo();
-        }
+            window.pageInit?.quiz?.();
+    },
+
+    "/jogos/semaforo": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/games/semaforo.html");
+
+            const module = Semaforo;
+            module.Start();
     },
 
     "/informacoes": async () => {
         document.getElementById("root").innerHTML =
             await loadFragment("pages/informativos.html");
+    },
+
+    "/download-page": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/download.html");
+    }, 
+
+    "/sobre": async () => {
+        document.getElementById("root").innerHTML =
+            await loadFragment("pages/sobre.html");
     },
 
     "/404": () => {

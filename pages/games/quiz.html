@@ -1,0 +1,183 @@
+<section id="como-funciona" class="frame" aria-labelledby="titulo-como">
+    <h1 class="text-center fw-bold mb-4" id="titulo-como">Como Funciona</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3">
+        <div class="col">
+            <article class="card signal red h-100">
+                <div class="card-body">
+                    <span aria-hidden="true" class="emoji d-block mb-2">🔴</span>
+                    <h3>Vermelho: não pode</h3>
+                    <p class="mb-0">Toques nas partes íntimas (as cobertas pela roupa de baixo) ou que pedem segredo. Diga não, saia de perto e conte a um adulto de confiança.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="col">
+            <article class="card signal yellow h-100">
+                <div class="card-body">
+                    <span aria-hidden="true" class="emoji d-block mb-2">🟡</span>
+                    <h3>Amarelo: atenção</h3>
+                    <p class="mb-0">Toques que dependem da situação ou que deixam você desconfortável. Pare, pergunte e converse com um adulto de confiança.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="col">
+            <article class="card signal green h-100">
+                <div class="card-body">
+                    <span aria-hidden="true" class="emoji d-block mb-2">🟢</span>
+                    <h3>Verde: pode</h3>
+                    <p class="mb-0">Toques seguros e carinhosos que você gosta e aceita, como um toca-aqui ou um abraço pedido por você.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+        
+        <div class="col">
+            <article class="card h-100">
+                <div class="card-body">
+                    <h3>Como jogar</h3>
+                    <p class="mb-0">Cada pergunta mostra uma situação. Toque no botão da cor que combina com ela.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="col">
+            <article class="card h-100">
+                <div class="card-body">
+                    <h3>Objetivo</h3>
+                    <p class="mb-0">Reconhecer os toques seguros e saber o que fazer quando algo não está bem.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="col">
+            <article class="card h-100">
+                <div class="card-body">
+                    <h3>Pontuação</h3>
+                    <p class="mb-0">Cada acerto vale 10 pontos. São 10 perguntas, então o máximo é 100 pontos.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="jogo" class="frame" aria-labelledby="titulo-jogo">
+    <h1 class="text-center fw-bold mb-4" id="titulo-jogo">Quiz</h1>
+
+    <hr><br>
+    <div class="row g-4">
+        <aside class="col-12 col-lg-3" aria-label="Placar">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column flex-md-row flex-lg-column align-items-center gap-3">
+                    <div class="mini-light" id="mini-light" data-lit="none" aria-hidden="true">
+                        <span class="lamp red"></span>
+                        <span class="lamp yellow"></span>
+                        <span class="lamp green"></span>
+                    </div>
+
+                    <dl class="stats row row-cols-2 row-cols-md-4 row-cols-lg-2 g-2 w-100 mb-0 text-center">
+                        <div class="col">
+                            <div class="stat-box">
+                                <dt>Pontos</dt>
+                                <dd class="fw-bold mb-0" id="stat-score">0</dd>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="stat-box">
+                                <dt>Pergunta</dt>
+                                <dd class="fw-bold mb-0" id="stat-question">0/10</dd>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="stat-box">
+                                <dt>Acertos</dt>
+                                <dd class="fw-bold mb-0" id="stat-hits">0</dd>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="stat-box">
+                                <dt>Erros</dt>
+                                <dd class="fw-bold mb-0" id="stat-misses">0</dd>
+                            </div>
+                        </div>
+                    </dl>
+
+                </div>
+            </div>
+        </aside>
+
+        <div class="col-12 col-lg-9">
+            <div class="card stage h-100">
+                <div class="card-body">
+
+                    <div id="screen-start" class="screen text-center">
+                        <h3>Pronto para jogar?</h3>
+                        <p>São 10 situações. Escolha a cor do semáforo para cada uma.</p>
+                        <button class="btn btn-primary" id="btn-start" type="button">Iniciar</button>
+                    </div>
+
+                    <div id="screen-play" class="screen" hidden>
+                        <p id="progress-label">Pergunta 1 de 10</p>
+
+                        <div class="progress mb-4" id="progress" role="progressbar"
+                                aria-labelledby="progress-label"
+                                aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+
+                            <div id="progress-fill" class="progress-bar" style="width:0"></div>
+                        </div>
+
+                        <h3 id="question-text" tabindex="-1"></h3>
+
+                        <div class="row row-cols-1 row-cols-md-3 g-3 my-3"
+                                role="group" aria-label="Escolha uma cor">
+                            <div class="col">
+                                <button class="choice red w-100 h-100" type="button" data-color="vermelho">
+                                    🔴 Vermelho <span class="tag"></span>
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button class="choice yellow w-100 h-100" type="button" data-color="amarelo">
+                                    🟡 Amarelo <span class="tag"></span>
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button class="choice green w-100 h-100" type="button" data-color="verde">
+                                    🟢 Verde <span class="tag"></span>
+                                </button>
+                            </div>
+                    </div>
+
+                    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+                    <button class="btn btn-primary" id="btn-next" type="button" hidden>Próxima pergunta</button>
+                </div>
+
+                    <div id="screen-result" class="screen" hidden>
+                    <h3 id="result-title" tabindex="-1">Fim de jogo!</h3>
+
+                    <p class="big-score"><span id="result-score">0</span> pontos</p>
+
+                    <ul class="list-unstyled d-flex flex-wrap gap-4 mb-3">
+                        <li>Acertos: <strong id="result-hits">0</strong></li>
+                        <li>Erros: <strong id="result-misses">0</strong></li>
+                        <li>Aproveitamento: <strong id="result-percent">0%</strong></li>
+                    </ul>
+
+                    <p id="result-message"></p>
+
+                    <button class="btn btn-primary" id="btn-restart" type="button">Jogar novamente</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
