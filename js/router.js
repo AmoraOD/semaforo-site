@@ -1,4 +1,4 @@
-import Semaforo from "./semaforo.js";
+import Semaforo from "./games/semaforo.js";
 
 const fragmentCache = new Map();
 
